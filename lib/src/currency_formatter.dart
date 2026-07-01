@@ -4,22 +4,24 @@ import 'aed_currency_formatter_base.dart';
 import 'currency_format_core.dart';
 import 'currency_locale_data.dart';
 import 'currency_negative_format.dart';
+import 'omr_currency_formatter_base.dart';
 import 'sar_currency_formatter_base.dart';
 
 /// Formats numeric values as currency text for any world currency,
 /// resolving the currency from [locale] (or the device's current locale
 /// when [locale] is omitted).
 ///
-/// UAE Dirham and Saudi Riyal are special-cased to delegate to
-/// [AedCurrencyFormatter] and [SarCurrencyFormatter], since those two
-/// currencies use this package's bundled custom symbol fonts. Every other
-/// currency uses `package:intl`'s standard currency data.
+/// UAE Dirham, Saudi Riyal, and Omani Rial are special-cased to delegate to
+/// [AedCurrencyFormatter], [SarCurrencyFormatter], and
+/// [OmrCurrencyFormatter], since those currencies use this package's
+/// bundled custom symbol fonts. Every other currency uses `package:intl`'s
+/// standard currency data.
 ///
-/// As with [AedCurrencyFormatter] and [SarCurrencyFormatter], defaults to
-/// [showCode] rather than [showSymbol]: this formatter may resolve to AED
-/// or SAR depending on the locale, and their symbols require the bundled
-/// font from a `Text` widget to render correctly. Use `CurrencyText` for
-/// zero-setup symbol rendering in the UI.
+/// As with those formatters, defaults to [showCode] rather than
+/// [showSymbol]: this formatter may resolve to AED, SAR, or OMR depending
+/// on the locale, and their symbols require the bundled font from a `Text`
+/// widget to render correctly. Use `CurrencyText` for zero-setup symbol
+/// rendering in the UI.
 class CurrencyFormatter {
   /// The locale used to resolve the currency and to drive number formatting
   /// conventions (digit grouping, decimal separator). Defaults to the
@@ -91,6 +93,17 @@ class CurrencyFormatter {
     if (currencyCode == 'SAR') {
       return SarCurrencyFormatter(
         decimalDigits: decimalDigits ?? 2,
+        locale: loc,
+        showSymbol: showSymbol,
+        showCode: showCode,
+        symbolSpacing: symbolSpacing,
+        compact: compact,
+        negativeFormat: negativeFormat,
+      ).formatValue(value);
+    }
+    if (currencyCode == 'OMR') {
+      return OmrCurrencyFormatter(
+        decimalDigits: decimalDigits ?? 3,
         locale: loc,
         showSymbol: showSymbol,
         showCode: showCode,

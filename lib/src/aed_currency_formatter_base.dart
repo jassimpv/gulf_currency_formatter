@@ -1,5 +1,5 @@
-import 'currency_format_core.dart';
 import 'currency_negative_format.dart';
+import 'currency_symbol_formatter_base.dart';
 
 /// Formats numeric values as UAE Dirham currency text, following the
 /// Central Bank of the UAE Dirham currency symbol guideline:
@@ -17,7 +17,7 @@ import 'currency_negative_format.dart';
 /// for zero-setup rendering of the symbol, or pass
 /// `showSymbol: true, showCode: false` and apply [symbolFontFamily] to your
 /// own `TextStyle` yourself.
-class AedCurrencyFormatter {
+class AedCurrencyFormatter extends SymbolCurrencyFormatter {
   /// The official UAE Dirham currency symbol (Unicode U+20C3).
   ///
   /// Requires a font that maps this codepoint to the Dirham glyph, such as
@@ -37,66 +37,22 @@ class AedCurrencyFormatter {
   static const String symbolFontFamily =
       'packages/aed_currency_formatter/Dirham';
 
-  /// Number of digits to show after the decimal point.
-  final int decimalDigits;
-
-  /// The locale used for digit grouping and decimal separators.
-  final String locale;
-
-  /// Whether to prefix the amount with the Dirham [symbol].
-  final bool showSymbol;
-
-  /// Whether to prefix the amount with the "AED" [code] instead of the symbol.
-  final bool showCode;
-
-  /// Number of space characters placed between the symbol/code and the numeral.
-  final int symbolSpacing;
-
-  /// Whether to use a compact representation (e.g. `1.2K`, `3.4M`).
-  final bool compact;
-
-  /// How negative amounts should be rendered.
-  final CurrencyNegativeFormat negativeFormat;
-
   /// Creates a reusable, configured AED currency formatter.
-  ///
-  /// Throws an [AssertionError] in debug mode if both [showSymbol] and
-  /// [showCode] are `true`, since the guideline forbids showing the symbol
-  /// and the "AED" code together.
   const AedCurrencyFormatter({
-    this.decimalDigits = 2,
-    this.locale = 'en_AE',
-    this.showSymbol = false,
-    this.showCode = true,
-    this.symbolSpacing = 1,
-    this.compact = false,
-    this.negativeFormat = CurrencyNegativeFormat.minusSign,
-  })  : assert(decimalDigits >= 0, 'decimalDigits cannot be negative'),
-        assert(symbolSpacing >= 0, 'symbolSpacing cannot be negative'),
-        assert(
-          !(showSymbol && showCode),
-          'The Dirham symbol and the "AED" code must never be shown '
-          'together (Central Bank of the UAE guideline). Set only one of '
-          'showSymbol / showCode to true.',
-        );
+    super.decimalDigits = 2,
+    super.locale = 'en_AE',
+    super.showSymbol,
+    super.showCode,
+    super.symbolSpacing,
+    super.compact,
+    super.negativeFormat,
+  });
 
-  /// Formats [value] using this formatter's configured options.
-  ///
-  /// [value] must be an [int], [double], [num], or a numeric [String].
-  String formatValue(dynamic value) {
-    return formatCurrencyValue(
-      value,
-      symbolText: symbol,
-      codeText: code,
-      decimalDigits: decimalDigits,
-      locale: locale,
-      showSymbol: showSymbol,
-      showCode: showCode,
-      symbolSpacing: symbolSpacing,
-      compact: compact,
-      negativeFormat: negativeFormat,
-    );
-  }
+  @override
+  String get symbolText => symbol;
+
+  @override
+  String get codeText => code;
 
   /// Formats [value] as AED currency text using default or supplied options.
   ///

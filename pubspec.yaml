@@ -1,10 +1,10 @@
 name: aed_currency_formatter
 description: >-
   Format int, double, num, and String values as currency text and widgets.
-  First-class support for UAE Dirham (AED) and Saudi Riyal (SAR) official
-  symbols via bundled fonts, plus every other world currency resolved
-  generically from a locale.
-version: 0.4.0
+  First-class support for UAE Dirham (AED), Saudi Riyal (SAR), and Omani
+  Rial (OMR) official symbols via bundled fonts, plus every other world
+  currency resolved generically from a locale.
+version: 0.5.0
 homepage: https://github.com/your-org/aed_currency_formatter
 repository: https://github.com/your-org/aed_currency_formatter
 issue_tracker: https://github.com/your-org/aed_currency_formatter/issues
@@ -31,3 +31,6 @@ flutter:
     - family: SaudiRiyal
       fonts:
         - asset: lib/fonts/saudi_riyal/saudi-riyal-symbol.ttf
+    - family: OmaniRial
+      fonts:
+        - asset: lib/fonts/omani_rial/omani-rial-symbol.ttf

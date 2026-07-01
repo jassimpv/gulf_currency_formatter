@@ -5,14 +5,15 @@ import 'aed_text.dart';
 import 'currency_format_core.dart';
 import 'currency_locale_data.dart';
 import 'currency_negative_format.dart';
+import 'omr_text.dart';
 import 'sar_text.dart';
 
 /// Displays [value] as currency text for any world currency, resolving the
 /// currency from [locale] (or the device's current locale when [locale] is
 /// omitted).
 ///
-/// Delegates to [AedText] or [SarText] when the resolved currency is UAE
-/// Dirham or Saudi Riyal, so their symbols render correctly with the
+/// Delegates internally for AED, SAR, and OMR when those currencies are
+/// resolved, so their official symbols render correctly with the
 /// bundled fonts. Every other currency's symbol (e.g. `$`, `€`, `¥`) is
 /// plain Unicode text and needs no special font.
 class CurrencyText extends StatelessWidget {
@@ -79,6 +80,20 @@ class CurrencyText extends StatelessWidget {
       return SarText(
         value,
         decimalDigits: decimalDigits ?? 2,
+        locale: loc,
+        symbolSpacing: symbolSpacing,
+        compact: compact,
+        negativeFormat: negativeFormat,
+        style: style,
+        textAlign: textAlign,
+        overflow: overflow,
+        maxLines: maxLines,
+      );
+    }
+    if (currencyCode == 'OMR') {
+      return OmrText(
+        value,
+        decimalDigits: decimalDigits ?? 3,
         locale: loc,
         symbolSpacing: symbolSpacing,
         compact: compact,

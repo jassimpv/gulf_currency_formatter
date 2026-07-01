@@ -11,58 +11,53 @@ class ExampleApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('aed_currency_formatter example')),
-        body: Center(
+        body: const Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(vertical: 24),
+            padding: EdgeInsets.symmetric(vertical: 24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const _Row(
-                  label: 'CurrencyText (device locale)',
-                  child: CurrencyText(1250.75),
-                ),
-
-                const SizedBox(height: 12),
-
-                const _Row(
+                _Row(
                   label: 'CurrencyText (en_US)',
                   child: CurrencyText(1250.75, locale: 'en_US'),
                 ),
 
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
-                const _Row(
+                _Row(
                   label: 'CurrencyText (ja_JP)',
                   child: CurrencyText(1250, locale: 'ja_JP'),
                 ),
 
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
-                const _Row(
+                _Row(
                   label: 'CurrencyText (en_GB)',
                   child: CurrencyText(1250.75, locale: 'en_GB'),
                 ),
 
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
                 // CurrencyText automatically delegates to AedText/SarText
                 // when the resolved currency is AED or SAR.
-                const _Row(
+                _Row(
                   label: 'CurrencyText (en_AE)',
                   child: CurrencyText(1250.75, locale: 'en_AE'),
                 ),
 
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
-                const _Row(
+                _Row(
                   label: 'CurrencyText (ar_SA)',
                   child: CurrencyText(1250.75, locale: 'ar_SA'),
                 ),
 
-                Text(
-                  '1000.toCurrency(locale: "en_US") -> '
-                  '${1000.toCurrency(locale: 'en_US')}',
+                SizedBox(height: 12),
+
+                _Row(
+                  label: 'CurrencyText (om_OM)',
+                  child: CurrencyText(1250.75, locale: 'om_OM'),
                 ),
               ],
             ),
