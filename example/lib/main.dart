@@ -1,4 +1,4 @@
-import 'package:aed_currency_formatter/aed_currency_formatter.dart';
+import 'package:gulf_currency_formatter/gulf_currency_formatter.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const ExampleApp());
@@ -10,7 +10,7 @@ class ExampleApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('aed_currency_formatter example')),
+        appBar: AppBar(title: const Text('gulf_currency_formatter example')),
         body: const Center(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(vertical: 24),
