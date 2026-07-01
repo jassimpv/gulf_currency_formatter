@@ -5,9 +5,9 @@ description: >-
   Rial (OMR) official symbols via bundled fonts, plus every other world
   currency resolved generically from a locale.
 version: 1.0.0
-homepage: https://github.com/your-org/gulf_currency_formatter
-repository: https://github.com/your-org/gulf_currency_formatter
-issue_tracker: https://github.com/your-org/gulf_currency_formatter/issues
+homepage: https://github.com/jassimpv/gulf_currency_formatter
+repository: https://github.com/jassimpv/gulf_currency_formatter
+issue_tracker: https://github.com/jassimpv/gulf_currency_formatter/issues
 
 environment:
   sdk: ^3.0.0
