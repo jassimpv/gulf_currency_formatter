@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Added link to the Medium article in the README.
+
 ## 1.0.2
 
 - Updated README screenshot reference path.

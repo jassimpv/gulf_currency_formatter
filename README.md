@@ -10,6 +10,10 @@ It formats int, double, num, and numeric String values as currency widgets, with
 
 All other currencies are also supported through locale-driven ISO currency resolution.
 
+## Articles
+
+- [Solving the AED, SAR, and OMR Symbol Problem in Flutter](https://medium.com/p/f668b017596a)
+
 ## Unicode status (important)
 
 - AED symbol: officially accepted for Unicode 18.0, but not reliably available in mainstream device fonts yet.
