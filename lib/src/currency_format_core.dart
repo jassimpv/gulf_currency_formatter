@@ -7,6 +7,28 @@ import 'currency_negative_format.dart';
 /// can style the symbol independently from the numeral).
 typedef CurrencyParts = ({String numberPart, bool isNegative});
 
+/// Locale `intl` always ships number-formatting data for, used as a last
+/// resort when the caller's [locale] isn't one `intl` recognizes.
+const String fallbackLocale = 'en_US';
+
+/// Runs [build] with [locale], retrying once with [fallbackLocale] if
+/// `intl` doesn't recognize [locale]. `intl` signals this by throwing an
+/// `ArgumentError` with an "Invalid locale" message from deep inside
+/// `NumberFormat`'s constructors, e.g. for a locale string passed through
+/// from user input or the device that `intl`'s bundled data has no entry
+/// for (now, or in a future `intl` release that changes what's supported).
+T withLocaleFallback<T>(String locale, T Function(String locale) build) {
+  try {
+    return build(locale);
+  } on ArgumentError catch (error) {
+    final Object? message = error.message;
+    final bool isUnrecognizedLocale =
+        message is String && message.startsWith('Invalid locale');
+    if (!isUnrecognizedLocale || locale == fallbackLocale) rethrow;
+    return build(fallbackLocale);
+  }
+}
+
 /// Shared numeral-formatting engine behind [AedCurrencyFormatter],
 /// [SarCurrencyFormatter], and the generic currency formatter. Not exported;
 /// only the currency symbol/code differ between currencies, so the
@@ -21,20 +43,37 @@ CurrencyParts formatCurrencyParts(
   final bool isNegative = amount < 0;
   final num absAmount = amount.abs();
 
-  final NumberFormat numberFormat = compact
-      ? NumberFormat.compactCurrency(
-          locale: locale,
-          symbol: '',
-          decimalDigits: decimalDigits,
-        )
-      : NumberFormat.currency(
-          locale: locale,
-          symbol: '',
-          decimalDigits: decimalDigits,
-        );
+  final NumberFormat numberFormat = _currencyNumberFormat(
+    locale: locale,
+    decimalDigits: decimalDigits,
+    compact: compact,
+  );
   return (
     numberPart: numberFormat.format(absAmount).trim(),
     isNegative: isNegative,
+  );
+}
+
+/// Builds the [NumberFormat] used to render the numeral, via
+/// [withLocaleFallback] since `intl` may not recognize [locale].
+NumberFormat _currencyNumberFormat({
+  required String locale,
+  required int decimalDigits,
+  required bool compact,
+}) {
+  return withLocaleFallback(
+    locale,
+    (String locale) => compact
+        ? NumberFormat.compactCurrency(
+            locale: locale,
+            symbol: '',
+            decimalDigits: decimalDigits,
+          )
+        : NumberFormat.currency(
+            locale: locale,
+            symbol: '',
+            decimalDigits: decimalDigits,
+          ),
   );
 }
 

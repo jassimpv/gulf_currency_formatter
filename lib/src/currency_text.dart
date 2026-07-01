@@ -104,10 +104,10 @@ class CurrencyText extends StatelessWidget {
         maxLines: maxLines,
       );
     }
-
-    final NumberFormat probe = NumberFormat.simpleCurrency(
-      locale: loc,
-      name: currencyCode,
+    final NumberFormat probe = withLocaleFallback(
+      loc,
+      (String locale) =>
+          NumberFormat.simpleCurrency(locale: locale, name: currencyCode),
     );
     final String text = formatCurrencyValue(
       value,
