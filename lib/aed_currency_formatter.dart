@@ -7,8 +7,6 @@
 /// currency data.
 library aed_currency_formatter;
 
-export 'src/currency_extensions.dart';
-export 'src/currency_formatter.dart';
 export 'src/currency_locale_data.dart' show currencyCodeForLocale, systemLocale;
 export 'src/currency_negative_format.dart';
 export 'src/currency_text.dart';
