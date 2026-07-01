@@ -9,7 +9,7 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: CurrencyText(1250.75, locale: 'not_a_real_locale'),
       ),
     );
