@@ -1,9 +1,9 @@
 name: gulf_currency_formatter
 description: >-
-  Format currency text and widgets for AED, SAR, and OMR with bundled
+  Format currency text and widgets for AED, SAR, OMR, and MVR with bundled
   official symbol fonts, plus generic locale-based formatting for every
   other currency.
-version: 1.0.4
+version: 1.1.0
 homepage: https://github.com/jassimpv/gulf_currency_formatter
 repository: https://github.com/jassimpv/gulf_currency_formatter
 issue_tracker: https://github.com/jassimpv/gulf_currency_formatter/issues
@@ -33,3 +33,6 @@ flutter:
     - family: OmaniRial
       fonts:
         - asset: lib/fonts/omani_rial/omani-rial-symbol.ttf
+    - family: MaldivianRufiyaa
+      fonts:
+        - asset: lib/fonts/mvr_rufiyaa/mvr-rufiyaa-symbol.ttf

@@ -5,6 +5,7 @@ import 'aed_text.dart';
 import 'currency_format_core.dart';
 import 'currency_locale_data.dart';
 import 'currency_negative_format.dart';
+import 'mvr_text.dart';
 import 'omr_text.dart';
 import 'sar_text.dart';
 
@@ -12,7 +13,7 @@ import 'sar_text.dart';
 /// currency from [locale] (or the device's current locale when [locale] is
 /// omitted).
 ///
-/// Delegates internally for AED, SAR, and OMR when those currencies are
+/// Delegates internally for AED, SAR, OMR, and MVR when those currencies are
 /// resolved, so their official symbols render correctly with the
 /// bundled fonts. Every other currency's symbol (e.g. `$`, `€`, `¥`) is
 /// plain Unicode text and needs no special font.
@@ -94,6 +95,20 @@ class CurrencyText extends StatelessWidget {
       return OmrText(
         value,
         decimalDigits: decimalDigits ?? 3,
+        locale: loc,
+        symbolSpacing: symbolSpacing,
+        compact: compact,
+        negativeFormat: negativeFormat,
+        style: style,
+        textAlign: textAlign,
+        overflow: overflow,
+        maxLines: maxLines,
+      );
+    }
+    if (currencyCode == 'MVR') {
+      return MvrText(
+        value,
+        decimalDigits: decimalDigits ?? 2,
         locale: loc,
         symbolSpacing: symbolSpacing,
         compact: compact,

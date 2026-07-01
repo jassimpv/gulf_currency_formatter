@@ -59,6 +59,13 @@ class ExampleApp extends StatelessWidget {
                   label: 'CurrencyText (en_OM)',
                   child: CurrencyText(1250.75, locale: 'en_OM'),
                 ),
+
+                SizedBox(height: 12),
+
+                _Row(
+                  label: 'CurrencyText (en_MV)',
+                  child: CurrencyText(1250.75, locale: 'en_MV'),
+                ),
               ],
             ),
           ),

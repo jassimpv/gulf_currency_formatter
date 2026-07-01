@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Added MVR (Maldivian Rufiyaa) support, with bundled official symbol font.
+
 ## 1.0.4
 
 - Shortened pubspec description to meet pub.dev's 60-180 character guidance.

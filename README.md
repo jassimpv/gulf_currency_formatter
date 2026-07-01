@@ -7,6 +7,7 @@ It formats int, double, num, and numeric String values as currency widgets, with
 - AED (UAE Dirham)
 - SAR (Saudi Riyal)
 - OMR (Omani Rial)
+- MVR (Maldivian Rufiyaa)
 
 All other currencies are also supported through locale-driven ISO currency resolution.
 
@@ -18,18 +19,20 @@ All other currencies are also supported through locale-driven ISO currency resol
 
 - AED symbol: officially accepted for Unicode 18.0, but not reliably available in mainstream device fonts yet.
 - OMR symbol: scheduled for Unicode 18.0, but not reliably available in mainstream device fonts yet.
+- MVR symbol: scheduled for Unicode 18.0, but not reliably available in mainstream device fonts yet.
 - SAR symbol: no permanent Unicode codepoint yet.
 
-Because of this, this package bundles the required fonts so AED, SAR, and OMR symbols can render correctly in Flutter UI today.
+Because of this, this package bundles the required fonts so AED, SAR, OMR, and MVR symbols can render correctly in Flutter UI today.
 
 ## Font files used
 
 This package supports all world currencies through locale-based formatting.
-The bundled font files below are specifically for official symbol rendering of AED, SAR, and OMR:
+The bundled font files below are specifically for official symbol rendering of AED, SAR, OMR, and MVR:
 
 - AED (Dirham): lib/fonts/dirham/dirham.ttf
 - SAR (Saudi Riyal): lib/fonts/saudi_riyal/saudi-riyal-symbol.ttf
 - OMR (Omani Rial): lib/fonts/omani_rial/omani-rial-symbol.ttf
+- MVR (Maldivian Rufiyaa): lib/fonts/mvr_rufiyaa/mvr-rufiyaa-symbol.ttf
 
 ## Search keywords 
 
@@ -41,13 +44,15 @@ This package is useful if you are searching for:
 - SAR currency symbol font
 - Omani Rial symbol Flutter
 - OMR symbol Unicode support
+- Maldivian Rufiyaa symbol Flutter
+- MVR currency symbol font
 - Gulf currency symbol package Flutter
 - Arabic currency symbol Flutter
 
 ## Why this package
 
 - CurrencyText auto-resolves currency from locale.
-- AED, SAR, and OMR symbols render with bundled fonts out of the box.
+- AED, SAR, OMR, and MVR symbols render with bundled fonts out of the box.
 - Great for UI currency display with locale-aware formatting.
 
 ## Install
@@ -73,6 +78,7 @@ import 'package:gulf_currency_formatter/gulf_currency_formatter.dart';
 CurrencyText(1250.75, locale: 'en_AE');
 CurrencyText(1250.75, locale: 'ar_SA');
 CurrencyText(1250.75, locale: 'en_OM');
+CurrencyText(1250.75, locale: 'en_MV');
 CurrencyText(1250.75, locale: 'en_US');
 ```
 
@@ -116,6 +122,7 @@ Examples:
 currencyCodeForLocale('en_AE'); // AED
 currencyCodeForLocale('ar_SA'); // SAR
 currencyCodeForLocale('en_OM'); // OMR
+currencyCodeForLocale('en_MV'); // MVR
 ```
 
 ## License
