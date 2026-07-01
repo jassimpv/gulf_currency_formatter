@@ -1,3 +1,8 @@
+## 1.0.1
+
+- Fixed README screenshot rendering.
+- Removed duplicate screenshot block in README.
+
 ## 1.0.0
 
 - First public release on pub.dev.
