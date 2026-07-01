@@ -1,0 +1,13 @@
+name: example
+description: Example usage of the aed_currency_formatter package.
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  aed_currency_formatter:
+    path: ../
