@@ -80,13 +80,9 @@ When you upload your Flutter web run screenshot, put it in this exact location:
 - File name: web-run.png
 - Full path: assets/screenshots/web-run.png
 
-After adding the image file, keep this line in README so it displays:
+Screenshot:
 
-```md
-![Flutter Web Run Screenshot](assets/screenshots/web-run.png)
-```
-
-![Flutter Web Run Screenshot](assets/screenshots/web-run.png)
+![Flutter Web Run Screenshot](https://raw.githubusercontent.com/jassimpv/gulf_currency_formatter/main/assets/screenshots/web-run.png)
 
 ## Example app
 
