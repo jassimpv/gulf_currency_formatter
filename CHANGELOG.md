@@ -1,3 +1,7 @@
+## 1.0.4
+
+- Shortened pubspec description to meet pub.dev's 60-180 character guidance.
+
 ## 1.0.3
 
 - Added link to the Medium article in the README.
