@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Updated README screenshot reference path.
+
 ## 1.0.1
 
 - Fixed README screenshot rendering.

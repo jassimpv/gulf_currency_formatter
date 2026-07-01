@@ -82,7 +82,7 @@ When you upload your Flutter web run screenshot, put it in this exact location:
 
 Screenshot:
 
-![Flutter Web Run Screenshot](https://raw.githubusercontent.com/jassimpv/gulf_currency_formatter/main/assets/screenshots/web-run.png)
+![Flutter Web Run Screenshot](assets/screenshots/web-run.png)
 
 ## Example app
 

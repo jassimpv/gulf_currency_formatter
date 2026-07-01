@@ -4,7 +4,7 @@ description: >-
   First-class support for UAE Dirham (AED), Saudi Riyal (SAR), and Omani
   Rial (OMR) official symbols via bundled fonts, plus every other world
   currency resolved generically from a locale.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/jassimpv/gulf_currency_formatter
 repository: https://github.com/jassimpv/gulf_currency_formatter
 issue_tracker: https://github.com/jassimpv/gulf_currency_formatter/issues
