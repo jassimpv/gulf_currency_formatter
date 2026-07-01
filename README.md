@@ -10,6 +10,36 @@ It formats int, double, num, and numeric String values as currency widgets, with
 
 All other currencies are also supported through locale-driven ISO currency resolution.
 
+## Unicode status (important)
+
+- AED symbol: officially accepted for Unicode 18.0, but not reliably available in mainstream device fonts yet.
+- OMR symbol: scheduled for Unicode 18.0, but not reliably available in mainstream device fonts yet.
+- SAR symbol: no permanent Unicode codepoint yet.
+
+Because of this, this package bundles the required fonts so AED, SAR, and OMR symbols can render correctly in Flutter UI today.
+
+## Font files used
+
+This package supports all world currencies through locale-based formatting.
+The bundled font files below are specifically for official symbol rendering of AED, SAR, and OMR:
+
+- AED (Dirham): lib/fonts/dirham/dirham.ttf
+- SAR (Saudi Riyal): lib/fonts/saudi_riyal/saudi-riyal-symbol.ttf
+- OMR (Omani Rial): lib/fonts/omani_rial/omani-rial-symbol.ttf
+
+## Search keywords 
+
+This package is useful if you are searching for:
+
+- UAE Dirham symbol Flutter
+- AED symbol not showing
+- Saudi Riyal symbol Flutter
+- SAR currency symbol font
+- Omani Rial symbol Flutter
+- OMR symbol Unicode support
+- Gulf currency symbol package Flutter
+- Arabic currency symbol Flutter
+
 ## Why this package
 
 - CurrencyText auto-resolves currency from locale.

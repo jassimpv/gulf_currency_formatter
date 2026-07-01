@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('CurrencyText with an unrecognized locale falls back instead of throwing', (
+  testWidgets(
+      'CurrencyText with an unrecognized locale falls back instead of throwing',
+      (
     tester,
   ) async {
     await tester.pumpWidget(
