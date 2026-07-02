@@ -1,5 +1,5 @@
 name: example
-description: Example usage of the gulf_currency_formatter package.
+description: Example usage of the gulf_currency package.
 publish_to: none
 
 environment:
@@ -9,5 +9,5 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  gulf_currency_formatter:
+  gulf_currency:
     path: ../

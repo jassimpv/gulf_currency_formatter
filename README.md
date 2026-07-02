@@ -1,4 +1,4 @@
-# gulf_currency_formatter
+# gulf_currency
 
 A Flutter currency text package for real apps.
 
@@ -61,13 +61,13 @@ Add this to pubspec.yaml:
 
 ```yaml
 dependencies:
-  gulf_currency_formatter: ^1.0.0
+  gulf_currency: ^2.0.0
 ```
 
 Then import:
 
 ```dart
-import 'package:gulf_currency_formatter/gulf_currency_formatter.dart';
+import 'package:gulf_currency/gulf_currency.dart';
 ```
 
 ## Quick start
@@ -80,6 +80,49 @@ CurrencyText(1250.75, locale: 'ar_SA');
 CurrencyText(1250.75, locale: 'en_OM');
 CurrencyText(1250.75, locale: 'en_MV');
 CurrencyText(1250.75, locale: 'en_US');
+```
+
+### CurrencyPicker
+
+A dropdown for picking a currency, showing each option's country flag next to its ISO 4217 code:
+
+```dart
+CurrencyPicker(
+  value: selectedCurrencyCode,
+  onChanged: (code) => setState(() => selectedCurrencyCode = code),
+);
+```
+
+Customization options:
+
+- `options`: restrict the list to a subset of `CurrencyOption`s (defaults to `allCurrencyOptions`, every currency this package knows about).
+- `label`: the field's label text (defaults to `'Currency'`).
+- `decoration`: full `InputDecoration` override for the field's chrome (border, fill, padding); overrides `label` when set.
+- `style`: `TextStyle` applied to each option's currency code.
+- `dropdownColor`: background color of the open menu.
+- `borderRadius`: corner radius of the field and open menu (defaults to 12).
+- `showFlag`: set to `false` to hide the flag and show just the code.
+- `itemBuilder`: `Widget Function(BuildContext, CurrencyOption)` for full control over each row's contents.
+
+```dart
+CurrencyPicker(
+  value: selectedCurrencyCode,
+  onChanged: (code) => setState(() => selectedCurrencyCode = code),
+  options: <CurrencyOption>[
+    const CurrencyOption(currencyCode: 'AED', countryCode: 'AE'),
+    const CurrencyOption(currencyCode: 'USD', countryCode: 'US'),
+  ],
+  decoration: const InputDecoration(border: InputBorder.none),
+  dropdownColor: Colors.white,
+  itemBuilder: (context, option) => Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Text(option.flag),
+      const SizedBox(width: 8),
+      Text(option.currencyCode, style: const TextStyle(fontWeight: FontWeight.bold)),
+    ],
+  ),
+);
 ```
 
 ## Web run screenshot (folder and file name)

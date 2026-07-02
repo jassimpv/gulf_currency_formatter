@@ -31,7 +31,7 @@ class SarCurrencyFormatter extends SymbolCurrencyFormatter {
   /// `packages/<package_name>/<family>`, so this is *not* just
   /// `'SaudiRiyal'`.
   static const String symbolFontFamily =
-      'packages/gulf_currency_formatter/SaudiRiyal';
+      'packages/gulf_currency/SaudiRiyal';
 
   /// Creates a reusable, configured SAR currency formatter.
   const SarCurrencyFormatter({

@@ -5,8 +5,9 @@
 /// is supported generically, resolved from a locale (or the device's current
 /// locale) using
 /// `package:intl`'s standard currency data.
-library gulf_currency_formatter;
+library gulf_currency;
 
 export 'src/currency_locale_data.dart' show currencyCodeForLocale, systemLocale;
 export 'src/currency_negative_format.dart';
+export 'src/currency_picker.dart';
 export 'src/currency_text.dart';

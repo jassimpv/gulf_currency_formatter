@@ -1,4 +1,4 @@
-@Deprecated('Use package:gulf_currency_formatter/gulf_currency_formatter.dart')
+@Deprecated('Use package:gulf_currency/gulf_currency.dart')
 library aed_currency_formatter;
 
-export 'gulf_currency_formatter.dart';
+export 'gulf_currency.dart';

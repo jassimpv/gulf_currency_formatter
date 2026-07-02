@@ -1,4 +1,4 @@
-import 'package:gulf_currency_formatter/gulf_currency_formatter.dart';
+import 'package:gulf_currency/gulf_currency.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

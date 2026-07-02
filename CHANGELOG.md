@@ -1,3 +1,8 @@
+## 2.0.0
+
+- **Breaking:** package renamed from `gulf_currency_formatter` to `gulf_currency`. Update your `pubspec.yaml` dependency and import statements accordingly.
+- Added a `CurrencyPicker` dropdown widget for selecting a currency with its country flag, customizable via `decoration`, `style`, `dropdownColor`, `borderRadius`, `showFlag`, and `itemBuilder`.
+
 ## 1.1.0
 
 - Added MVR (Maldivian Rufiyaa) support, with bundled official symbol font.

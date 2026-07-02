@@ -31,7 +31,7 @@ class MvrCurrencyFormatter extends SymbolCurrencyFormatter {
   /// `packages/<package_name>/<family>`, so this is *not* just
   /// `'MaldivianRufiyaa'`.
   static const String symbolFontFamily =
-      'packages/gulf_currency_formatter/MaldivianRufiyaa';
+      'packages/gulf_currency/MaldivianRufiyaa';
 
   /// Creates a reusable, configured MVR currency formatter.
   const MvrCurrencyFormatter({

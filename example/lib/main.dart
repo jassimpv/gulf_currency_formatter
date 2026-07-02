@@ -1,4 +1,4 @@
-import 'package:gulf_currency_formatter/gulf_currency_formatter.dart';
+import 'package:gulf_currency/gulf_currency.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const ExampleApp());
@@ -10,7 +10,7 @@ class ExampleApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('gulf_currency_formatter example')),
+        appBar: AppBar(title: const Text('gulf_currency example')),
         body: const Center(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(vertical: 24),
@@ -66,11 +66,54 @@ class ExampleApp extends StatelessWidget {
                   label: 'CurrencyText (en_MV)',
                   child: CurrencyText(1250.75, locale: 'en_MV'),
                 ),
+
+                SizedBox(height: 24),
+
+                _CurrencyPickerDemo(),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _CurrencyPickerDemo extends StatefulWidget {
+  const _CurrencyPickerDemo();
+
+  @override
+  State<_CurrencyPickerDemo> createState() => _CurrencyPickerDemoState();
+}
+
+class _CurrencyPickerDemoState extends State<_CurrencyPickerDemo> {
+  String _currencyCode = 'AED';
+
+  @override
+  Widget build(BuildContext context) {
+    final String countryCode = allCurrencyOptions
+        .firstWhere(
+            (CurrencyOption option) => option.currencyCode == _currencyCode)
+        .countryCode;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        const Text('CurrencyPicker'),
+        const SizedBox(height: 8),
+        SizedBox(
+          width: 220,
+          child: CurrencyPicker(
+            value: _currencyCode,
+            onChanged: (String code) => setState(() => _currencyCode = code),
+          ),
+        ),
+        const SizedBox(height: 12),
+        _Row(
+          label: 'Selected currency',
+          child: CurrencyText(1250.75, locale: 'en_$countryCode'),
+        ),
+      ],
     );
   }
 }

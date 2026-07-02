@@ -1,12 +1,12 @@
-name: gulf_currency_formatter
+name: gulf_currency
 description: >-
   Format currency text and widgets for AED, SAR, OMR, and MVR with bundled
   official symbol fonts, plus generic locale-based formatting for every
   other currency.
-version: 1.1.0
-homepage: https://github.com/jassimpv/gulf_currency_formatter
-repository: https://github.com/jassimpv/gulf_currency_formatter
-issue_tracker: https://github.com/jassimpv/gulf_currency_formatter/issues
+version: 2.0.0
+homepage: https://github.com/jassimpv/gulf_currency
+repository: https://github.com/jassimpv/gulf_currency
+issue_tracker: https://github.com/jassimpv/gulf_currency/issues
 
 environment:
   sdk: ^3.0.0
